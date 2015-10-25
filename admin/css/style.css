@@ -1,0 +1,642 @@
+body{
+    margin: 0px;
+    background-color: #014051;
+    width: 100%;
+}
+
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+
+@font-face {
+	font-family: 'Open Sans';
+}
+
+/* background gear selector*/
+#OptionBack{
+	position: fixed;
+	left: 40px;
+	cursor: pointer;
+	z-index: 99999;
+
+}
+
+#DivBacks{
+	position: fixed;
+	padding: 12px;
+	left: 34px;
+	top: 25px;
+	z-index: 99999;
+	display: none;
+}
+
+.boxBack{
+	position: relative;
+	background-color: green;
+	z-index: 9999999;
+    width:20px;
+    height:20px;
+    margin-bottom: 5px;
+    color: transparent;
+    cursor: pointer;
+
+    border:solid;
+    border-color: white;
+    border-width: 2px;
+
+}
+
+/* Gear Color Options*/
+#OptionColor{
+	position: fixed;
+	cursor: pointer;
+}
+
+#DivColors{
+	padding: 10px;
+	display: none;
+	position: fixed;
+	top: 25px;
+}
+
+.boxColor{
+	background-color: blue;
+    width:20px;
+    height:20px;
+    margin-bottom: 5px;
+    color: transparent;
+    cursor: pointer;
+    border:solid;
+    border-color: white;
+    border-width: 2px;
+}
+
+/* .Gear Color Options */
+
+.squaredTwo {
+	width: 28px;
+	height: 28px;
+	background: #fcfff4;
+	position: relative;
+	top: -14px;
+}
+
+.squaredTwo label {
+	cursor: pointer;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 4px;
+	top: 4px;
+
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+
+}
+
+.squaredTwo label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 4px;
+	left: 4px;
+	border: 3px solid #fcfff4;
+	border-top: none;
+	border-right: none;
+
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.squaredTwo label:hover::after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
+	opacity: 0.3;
+}
+
+.squaredTwo input[type=checkbox]:checked + label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+.lblRemember{
+	color: white;
+    font-family:  'Open Sans';
+    font-size: 15px;
+    position: relative;
+    top: -37px;
+    left: 35px;
+    z-index: 9999;
+}
+#BackgroundUp{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	height: 100%;
+	width: 100%;
+	z-index: 999;
+}
+.MetroBox{
+	position:absolute;
+	bottom: 60px;
+	left: 50px;
+}
+#MetroTime{
+	color: white;
+    font-family: 'Open Sans';
+    font-size: 120px;
+}
+#MetroDate{
+	color: white;
+    font-family: 'Open Sans';
+    font-size: 40px;
+}
+/* Login Box */
+.LoginBox{
+	position: fixed;
+	top: 35%;
+	left: 37%;
+	width: 350px;
+	z-index: 90;
+	display: block;
+	display: none;
+}
+
+.LoginBox h2{
+	color: white;
+    font-family: 'Open Sans';
+    font-size: 19px;
+    position: relative;
+    top: -170px;
+    left: 170px;
+}
+
+.LoginBox input{
+	padding: 6px;
+	width: 250px;
+	height: 27px;
+	display: block;
+	max-height: 28px;
+	border: 0px;
+	outline: none;
+}
+.LoginBox .fields{
+	position: relative;
+	top: -170px;
+	left: 170px;
+}
+
+.LoginBox #botLogIn{
+	
+	border: none;
+	background:url(../img/right.png) no-repeat center center;
+	height: 23px;
+	width: 23px;
+	position: relative;
+	top: -25px;
+	left: 225px;
+}
+
+.LoginBox .seePass{
+	position: relative;
+	top: -27px;
+	left: 170px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+
+	.LoginBox #botLogIn{
+		border: none;
+		background:url(../img/right.png) no-repeat center center;
+		height: 23px;
+		width: 23px;
+		position: relative;
+		left: 225px;
+	}
+
+	.LoginBox .seePass{
+		position: relative;
+		top: -24px;
+		left: 170px;
+	}
+
+
+}
+
+.boxLoading{
+
+	display: none;
+	position: relative;
+	top: -135px;
+	left: 180px;
+
+}
+
+.LoginBox .boxLoading{
+
+	color: white;
+    font-family: 'Open Sans';
+}
+
+.boxLoading span{
+	position: relative;
+	top: -20px;
+	left: 15px;
+}
+
+
+.loginFail{
+	display: none;
+	position: relative;
+	top: -170px;
+	left: 170px;
+}
+
+.OrangeSpan{
+	color: #ff6e6e;
+    font-family: 'Open Sans';	
+}
+
+.welcome{
+	color: white;
+	font-family: 'Open Sans';
+	font-size: 50px;
+	position: relative;
+	left: 30%;
+	top: 40%;
+}
+
+#botTryAgain{
+
+	background-color: black;
+	border-color: white;
+	border-width: 3px;
+	border-style: solid;
+	color: white;
+}
+
+
+@media only screen and (device-width: 768px) and (max-width:959px)  {
+  /* For general iPad layouts */
+  .LoginBox #botLogIn{
+		border: none;
+		background:url(../img/right.png) no-repeat center center;
+		height: 23px;
+		width: 23px;
+		position: relative;
+		top: -34px;
+		left: 225px;
+	}
+
+	/* Login Box */
+	.LoginBox{
+		position: relative;
+		top: 30%;
+		left: 23%;
+		width: 350px;
+		z-index: 90;
+		display: block;
+		display: none;
+	}
+}
+
+
+/* Mobile Phones or other stuff portrait*/
+@media screen and (min-width:1px) and (max-width: 767px) and (orientation: portrait) {
+	
+	body{
+		height: 100%;
+	}
+
+	#MetroTime{
+		color: white;
+	    font-family: 'Open Sans';
+	    font-size: 35px;
+	}
+
+	#MetroDate{
+		color: white;
+	    font-family: 'Open Sans';
+	    font-size: 20px;
+	}
+
+	.MetroBox{
+		position:absolute;
+		bottom:50px;
+		left: 20px;
+	}
+
+	/* Login Box */
+	.LoginBox{
+		position: relative;
+		top: 10%;
+		left: 37%;
+		width: 350px;
+		z-index: 90;
+	}
+
+	.LoginBox h2{
+		color: white;
+	    font-family: 'Open Sans';
+	    font-size: 19px;
+	    position: relative;
+	    top: -173px;
+	    left: 170px;
+
+	}
+
+	.LoginBox input{
+		padding: 5px;
+		width: 250px;
+		height: 27px;
+		display: block;
+	}
+	.LoginBox .fields{
+		position: relative;
+		top: -170px;
+		left: 170px;
+	}
+
+	.LoginBox #botLogIn{
+		
+		border: none;
+		background:url(../img/right.png) no-repeat center center;
+		height: 23px;
+		width: 23px;
+		position: relative;
+		top: -30px;
+		left: 225px;
+	}
+
+	.LoginBox .seePass{
+		position: relative;
+		top: -25px;
+		left: 170px;
+	}
+
+}
+
+/* Mobile Phones Landscape */
+@media screen and (max-device-width: 640px) and (orientation: landscape){
+  
+  #MetroTime{
+		color: white;
+	    font-family: 'Open Sans';
+	    font-size: 35px;
+	}
+
+	#MetroDate{
+		color: white;
+	    font-family: 'Open Sans';
+	    font-size: 20px;
+	}
+
+	.MetroBox{
+		position:absolute;
+		bottom:20px;
+		left: 20px;
+	}
+
+	.LoginBox{
+		position: relative;
+		top: 20%;
+		left: 15%;
+		z-index: 90;
+	}
+
+}
+
+
+
+/* css Animations */
+.animated {
+	-webkit-animation-duration: 1s;
+	   -moz-animation-duration: 1s;
+	     -o-animation-duration: 1s;
+	        animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	   -moz-animation-fill-mode: both;
+	     -o-animation-fill-mode: both;
+	        animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeOutUpBig {
+	0% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+	}
+	
+	100% {
+		opacity: 0;
+		-webkit-transform: translateY(-2000px);
+	}
+}
+
+@-moz-keyframes fadeOutUpBig {
+	0% {
+		opacity: 1;
+		-moz-transform: translateY(0);
+	}
+	
+	100% {
+		opacity: 0;
+		-moz-transform: translateY(-2000px);
+	}
+}
+
+@-o-keyframes fadeOutUpBig {
+	0% {
+		opacity: 1;
+		-o-transform: translateY(0);
+	}
+	
+	100% {
+		opacity: 0;
+		-o-transform: translateY(-2000px);
+	}
+}
+
+@keyframes fadeOutUpBig {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+	100% {
+		opacity: 0;
+		transform: translateY(-2000px);
+	}
+}
+
+.fadeOutUpBig {
+	-webkit-animation-name: fadeOutUpBig;
+	-moz-animation-name: fadeOutUpBig;
+	-o-animation-name: fadeOutUpBig;
+	animation-name: fadeOutUpBig;
+}
+
+
+@-webkit-keyframes fadeOut {
+	0% {opacity: 1;}
+	100% {opacity: 0;}
+}
+
+@-moz-keyframes fadeOut {
+	0% {opacity: 1;}
+	100% {opacity: 0;}
+}
+
+@-o-keyframes fadeOut {
+	0% {opacity: 1;}
+	100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+	0% {opacity: 1;}
+	100% {opacity: 0;}
+}
+
+.fadeOut {
+	-webkit-animation-name: fadeOut;
+	-moz-animation-name: fadeOut;
+	-o-animation-name: fadeOut;
+	animation-name: fadeOut;
+}
+
+
+@-webkit-keyframes fadeInDownBig {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-2000px);
+	}
+	
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+	}
+}
+
+@-moz-keyframes fadeInDownBig {
+	0% {
+		opacity: 0;
+		-moz-transform: translateY(-2000px);
+	}
+	
+	100% {
+		opacity: 1;
+		-moz-transform: translateY(0);
+	}
+}
+
+@-o-keyframes fadeInDownBig {
+	0% {
+		opacity: 0;
+		-o-transform: translateY(-2000px);
+	}
+	
+	100% {
+		opacity: 1;
+		-o-transform: translateY(0);
+	}
+}
+
+@keyframes fadeInDownBig {
+	0% {
+		opacity: 0;
+		transform: translateY(-2000px);
+	}
+	
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.fadeInDownBig {
+	-webkit-animation-name: fadeInDownBig;
+	-moz-animation-name: fadeInDownBig;
+	-o-animation-name: fadeInDownBig;
+	animation-name: fadeInDownBig;
+}
+@-webkit-keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@-moz-keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@-ms-keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@-o-keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@-moz-keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@-o-keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+.fadeIn {
+	-webkit-animation-name: fadeIn;
+	-moz-animation-name: fadeIn;
+	-o-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+
+.quick {
+	-webkit-animation-duration: 0.8s;
+	-moz-animation-duration: 0.8s;
+	-ms-animation-duration: 0.8s;
+	-o-animation-duration: 0.8s;
+	animation-duration: 0.8s;
+}
+
+.animated.quick {
+	-webkit-animation-duration: 0.4s;
+		-moz-animation-duration: 0.4s;
+		-ms-animation-duration: 0.4s;
+		-o-animation-duration: 0.4s;
+		animation-duration: 0.4s;
+}

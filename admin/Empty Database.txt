@@ -1,0 +1,14 @@
+UPDATE `settings` SET `view`='0',`download`='0' WHERE `lol`='1';
+TRUNCATE `answer_parts`;
+TRUNCATE `contributions`;
+TRUNCATE `online`;
+TRUNCATE `reports`;
+TRUNCATE `subs`;
+TRUNCATE `tests`;
+TRUNCATE `test_parts`;
+TRUNCATE `users`;
+TRUNCATE `ques_history`;
+TRUNCATE `ques_parts`;
+TRUNCATE `test_history`;
+TRUNCATE `test_parts`;
+TRUNCATE `comments`;

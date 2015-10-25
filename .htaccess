@@ -1,0 +1,160 @@
+Options +FollowSymLinks
+RewriteEngine On
+#Chuyển sang không www
+RewriteCond %{HTTP_HOST} !^dektra.net$ [NC]
+RewriteRule ^(.*)$ http://dektra.net/$1 [L,R=301]
+RewriteRule ^/?$ "http\:\/\/dektra.net/latest" [R=301,L]
+#SEO
+RewriteRule ^(.*)_$ http://dektra.net/$1 [L,R=301]
+RewriteRule ^(.*)\.([0-9]*)\.php$ showtest.php?it=$2 [L]
+RewriteRule ^(.*)\.([0-9]*)\.test$ test.php?it=$2 [L]
+RewriteRule ^(.*)\/(.*)\/(.*)\.([0-9]*)\_([0-9]*)$ showall.php?cg1=$4&p=$5 [L]
+RewriteRule ^(.*)\/(.*)\/(.*)\.([0-9]*)$ showall.php?cg1=$4 [L]
+RewriteRule ^(.*)\/(.*)\.([0-9]*)\_([0-9]*)$ showall.php?cg2=$3&p=$4 [L]
+RewriteRule ^(.*)\/(.*)\.([0-9]*)$ showall.php?cg2=$3 [L]
+RewriteRule ^(.*)\.([0-9]*)\_([0-9]*)$ showall.php?cg3=$2&p=$3 [L]
+RewriteRule ^(.*)\.([0-9]*)$ showall.php?cg3=$2 [L]
+RewriteRule ^latest$ showall.php [L]
+RewriteRule ^latest_([0-9]*)$ showall.php?p=$1 [L]
+RewriteRule ^thong-tin-thanh-vien\-(.*)\-([0-9]*)$ profile.php?id=$2 [L]
+RewriteRule ^dong-gop-de-kiem-tra$ upload.php [L]
+RewriteRule ^danh-sach-de-da-dong-gop-cua\-(.*)\-([0-9]*)$ listup.php?id=$2 [L]
+RewriteRule ^danh-sach-de-da-tai-cua\-(.*)\-([0-9]*)$ listdown.php?id=$2 [L]
+RewriteRule ^doi-mat-khau$ chpass.php [L]
+RewriteRule ^doi-mat-khau-bang-mat-khau-cap-2$ chpass2.php [L]
+RewriteRule ^thay-doi-thong-tin-thanh-vien$ editpro5.php [L]
+RewriteRule ^lien-he$ contact.php [L]
+RewriteRule ^tro-giup$ faq.php [L]
+RewriteRule ^lay-lai-mat-khau$ forgot.php [L]
+RewriteRule ^gioi-thieu$ intro.php [L]
+RewriteRule ^dang-nhap$ login.php [L]
+RewriteRule ^dang-nhap\?goto=(.*)$ login.php [L]
+RewriteRule ^dang-xuat$ logout.php [L]
+RewriteRule ^dang-ky$ register.php [L]
+RewriteRule ^dang-ky\?goto=(.*)$ register.php [L]
+RewriteRule ^bao-cao-lam-thu\/(.*)\/(.*)\-([0-9]*)$ showttest.php?tid=$3 [L]
+RewriteRule ^danh-sach-bao-cao-lam-thu-moi-nhat$ allttest.php [L]
+RewriteRule ^danh-sach-bao-cao-lam-thu-moi-nhat\_([0-9]*)$ allttest.php?p=$1 [L]
+RewriteRule ^danh-sach-bao-cao-lam-thu\/(.*)\-([0-9]*)$ allttest.php?uid=$2 [L]
+RewriteRule ^danh-sach-bao-cao-lam-thu\/(.*)\-([0-9]*)\_([0-9]*)$ allttest.php?uid=$2&p=$3 [L]
+RewriteRule ^danh-sach-bao-cao-lam-thu\-s\/(.*)\-([0-9]*)$ allttest.php?it=$2 [L]
+RewriteRule ^danh-sach-bao-cao-lam-thu\-s\/(.*)\-([0-9]*)\_([0-9]*)$ allttest.php?it=$2&p=$3 [L]
+#Đặt trang error
+ErrorDocument 500 /error/500.php
+ErrorDocument 503 /error/503.php
+ErrorDocument 400 /error/400.php
+ErrorDocument 401 /error/401.php
+ErrorDocument 403 /error/403.php
+ErrorDocument 404 /error/404.php
+#Bảo vệ file
+<files .htaccess>
+order allow,deny
+deny from all
+</files>
+<files .htpasswd>
+order allow,deny
+deny from all
+</files>
+<files config.php>
+order allow,deny
+deny from all
+</files>
+<files function.php>
+order allow,deny
+deny from all
+</files>
+#Không cho truy cập vào folder
+Options All -Indexes
+IndexIgnore *
+#Giới hạn upload
+LimitRequestBody 10240000
+#Tắt chữ ký số
+ServerSignature Off
+#Chống ăn cắp băng thông
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?dektra.net/.*$ [NC]
+RewriteRule \.(gif|jpg|png|doc|pdf)$ http://dektra.net/error/403.html [R=302,L]
+#Đặt Charset mặc định
+AddDefaultCharset utf-8
+#Đặt timezone
+SetEnv TZ Asia/Ho_Chi_Minh
+#Đặt ngôn ngữ mặc định
+DefaultLanguage vi-VN
+#Chặn Evil Robots, Site Rippers, và Offline Browsers
+RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Bot\ mailto:craftbot@yahoo.com [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ChinaClaw [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Custo [OR]
+RewriteCond %{HTTP_USER_AGENT} ^DISCo [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Download\ Demon [OR]
+RewriteCond %{HTTP_USER_AGENT} ^eCatch [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EirGrabber [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EmailSiphon [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EmailWolf [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Express\ WebPictures [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ExtractorPro [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EyeNetIE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^FlashGet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GetRight [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GetWeb! [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Go!Zilla [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Go-Ahead-Got-It [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GrabNet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Grafula [OR]
+RewriteCond %{HTTP_USER_AGENT} ^HMView [OR]
+RewriteCond %{HTTP_USER_AGENT} HTTrack [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^Image\ Stripper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Image\ Sucker [OR]
+RewriteCond %{HTTP_USER_AGENT} Indy\ Library [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^InterGET [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Internet\ Ninja [OR]
+RewriteCond %{HTTP_USER_AGENT} ^JetCar [OR]
+RewriteCond %{HTTP_USER_AGENT} ^JOC\ Web\ Spider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^larbin [OR]
+RewriteCond %{HTTP_USER_AGENT} ^LeechFTP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mass\ Downloader [OR]
+RewriteCond %{HTTP_USER_AGENT} ^MIDown\ tool [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mister\ PiX [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Navroad [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NearSite [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetAnts [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetSpider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Net\ Vampire [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetZIP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Octopus [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Offline\ Explorer [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Offline\ Navigator [OR]
+RewriteCond %{HTTP_USER_AGENT} ^PageGrabber [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Papa\ Foto [OR]
+RewriteCond %{HTTP_USER_AGENT} ^pavuk [OR]
+RewriteCond %{HTTP_USER_AGENT} ^pcBrowser [OR]
+RewriteCond %{HTTP_USER_AGENT} ^RealDownload [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ReGet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SiteSnagger [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SmartDownload [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SuperBot [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SuperHTTP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Surfbot [OR]
+RewriteCond %{HTTP_USER_AGENT} ^tAkeOut [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Teleport\ Pro [OR]
+RewriteCond %{HTTP_USER_AGENT} ^VoidEYE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Web\ Image\ Collector [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Web\ Sucker [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebAuto [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebCopier [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebFetch [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebGo\ IS [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebLeacher [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebReaper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebSauger [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Website\ eXtractor [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Website\ Quester [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebStripper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebWhacker [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebZIP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Wget [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Widow [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WWWOFFLE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Xaldon\ WebSpider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Zeus
+RewriteRule ^.* - [F,L]
