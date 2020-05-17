@@ -1,2 +1,2 @@
 # dekiemtra
-Medium Project: ĐềKiểmTra - Thư viện đề kiểm tra trực tuyến
+A Online storage of quiz, question and answer, built with pure PHP
